@@ -35,7 +35,7 @@ public class LogController {
 		log.setStatus(Status);
 		log.setUser(User);
 		
-		String pattern = "MM-dd-yyyy HH:mm:ss";
+		String pattern = "DD-MM-yyyy HH:mm:ss";
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 		String date = simpleDateFormat.format(new Date());
 		

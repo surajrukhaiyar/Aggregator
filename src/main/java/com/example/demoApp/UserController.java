@@ -42,7 +42,7 @@ public class UserController {
     	try {
     		userDetails = userDetailsService.loadUserByUsername(user.getName());	
     	}catch (UsernameNotFoundException e) {
-	
+    		//User need to be saved if not Found
 		}finally {
 	    	if(userDetails != null) {
 	    		throw new ResponseStatusException(HttpStatus.CONFLICT, "User already exist");    		
@@ -63,7 +63,7 @@ public class UserController {
     			throw new AuthenticationException();
     		}
 		} catch (UsernameNotFoundException e) {
-			throw new ResponseStatusException(HttpStatus.FORBIDDEN, "User doesn't exist please signUp"); 
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User doesn't exist please signUp"); 
 		} catch (AuthenticationException e) {
 			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Unauthorise user try re-entering password"); 
 		}
