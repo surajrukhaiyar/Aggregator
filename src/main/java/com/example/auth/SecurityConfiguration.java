@@ -21,6 +21,11 @@ import com.example.jwt.JwtAuthenticationTokenFilter;
 import com.example.jwt.JwtSuccessHandler;
 
 
+/**
+ * Jan 18, 2019
+ * @author suraj.r
+ * 
+ */
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @EnableWebSecurity
 @Configuration

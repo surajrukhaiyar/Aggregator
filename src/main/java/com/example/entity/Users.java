@@ -7,6 +7,11 @@ import org.springframework.security.core.GrantedAuthority;
 import java.util.Collection;
 import java.util.Set;
 
+/**
+ * Jan 18, 2019
+ * @author suraj.r
+ * 
+ */
 @Entity
 @Table(name = "user")
 public class Users {

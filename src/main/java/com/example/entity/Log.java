@@ -6,6 +6,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Jan 18, 2019
+ * @author suraj.r
+ * 
+ */
 @Entity
 @Table(name = "log")
 public class Log {

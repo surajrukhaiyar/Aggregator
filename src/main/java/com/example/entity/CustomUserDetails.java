@@ -9,6 +9,11 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Jan 18, 2019
+ * @author suraj.r
+ * 
+ */
 public class CustomUserDetails extends Users implements UserDetails {
 	List<GrantedAuthority> grantedAuthorities_local;
 	

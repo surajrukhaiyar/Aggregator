@@ -12,6 +12,11 @@ import org.springframework.stereotype.Service;
 import com.example.entity.Users;
 import com.example.jpaRepo.UsersRepository;
 
+/**
+ * Jan 18, 2019
+ * @author suraj.r
+ * 
+ */
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 	

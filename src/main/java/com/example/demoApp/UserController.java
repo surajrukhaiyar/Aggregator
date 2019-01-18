@@ -14,11 +14,19 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.example.auth.UserDetailsServiceImpl;
+import com.example.entity.AppProcess;
 import com.example.entity.JwtAuthenticationToken;
 import com.example.entity.Users;
+import com.example.jpaRepo.AppProcessRepository;
 import com.example.jpaRepo.UsersRepository;
 import com.example.jwt.JwtGenerator;
 
+
+/**
+ * Jan 18, 2019
+ * @author suraj.r
+ * 
+ */
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -27,6 +35,9 @@ public class UserController {
     private UserDetailsServiceImpl userDetailsService;
     private JwtGenerator jwtGenerator;
     private UsersRepository usersRepo;
+    
+    @Autowired
+    private AppProcessRepository processLogRepo;
 
 
     public UserController(UsersRepository applicationUserRepository, JwtGenerator jwtGen) {
@@ -67,5 +78,12 @@ public class UserController {
 		} catch (AuthenticationException e) {
 			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Unauthorise user try re-entering password"); 
 		}
+    }
+    
+    @PostMapping("/applicationLog")
+    @ResponseBody
+    public AppProcess getApplicationLog(@RequestBody AppProcess process) {
+    	processLogRepo.save(process);
+    	return process;
     }
 }

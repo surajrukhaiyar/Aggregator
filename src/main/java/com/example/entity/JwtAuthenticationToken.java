@@ -2,6 +2,11 @@ package com.example.entity;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
+/**
+ * Jan 18, 2019
+ * @author suraj.r
+ * 
+ */
 public class JwtAuthenticationToken extends UsernamePasswordAuthenticationToken{
 
     private String token;

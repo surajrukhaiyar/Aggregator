@@ -2,6 +2,11 @@ package com.example.entity;
 
 import javax.persistence.*;
 
+/**
+ * Jan 18, 2019
+ * @author suraj.r
+ * 
+ */
 @Entity
 @Table(name = "role")
 public class Role {
