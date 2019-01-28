@@ -26,6 +26,7 @@ public class WfTransaction {
 	private String transactionId;
 	private String tName;
 	private String tStatus;
+	private String dateTime;
 	
 	@ElementCollection
 	private List<WfInputData> inputData=new ArrayList<>();
@@ -56,5 +57,12 @@ public class WfTransaction {
 	}
 	public void setInputData(List<WfInputData> inputData) {
 		this.inputData = inputData;
+	}
+	
+	public String getDateTime() {
+		return dateTime;
+	}
+	public void setDateTime(String dateTime) {
+		this.dateTime = dateTime;
 	}
 }
