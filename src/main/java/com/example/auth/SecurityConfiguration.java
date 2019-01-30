@@ -52,7 +52,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter  {
 
         http.csrf().disable();
         http.authorizeRequests()
-        		.antMatchers(SecurityConstants.SIGN_UP_URL).permitAll()
+        		.antMatchers(SecurityConstants.SIGN_UP_URL, SecurityConstants.UpdateLog_URL).permitAll()
 		        .anyRequest().authenticated()
         		.and()
 		        .exceptionHandling().authenticationEntryPoint(entryPoint);
