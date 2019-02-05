@@ -52,6 +52,7 @@ public class LoggerController {
 	public @ResponseBody String updateAppStatus(@RequestBody AppProcess appProcess) {
 		AppProcess app = processLogRepo.findByProcessId(appProcess.getProcessId());
 		app.setStatus(appProcess.getStatus());
+		app.setDateTime(appProcess.getDateTime());
 		processLogRepo.save(app);
 		return "Status saved";
 	}
