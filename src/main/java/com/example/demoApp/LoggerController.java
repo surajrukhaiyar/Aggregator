@@ -13,14 +13,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.example.entity.AppProcess;
 import com.example.entity.WfTransaction;
 import com.example.jpaRepo.AppProcessRepository;
-import com.example.jpaRepo.UsersRepository;
 @Controller
 @RequestMapping(path="/logger")
 public class LoggerController {
-	
+
 	@Autowired
-	private UsersRepository usersRepo;
-    @Autowired
     private AppProcessRepository processLogRepo;
     
 	@PostMapping(path="/add")
@@ -45,7 +42,7 @@ public class LoggerController {
 		
 		savedApp.setTransactions(transactionList);
 		processLogRepo.save(savedApp);
-		return "updated";
+		return "Transaction updated";
 	}
 	
 	@PostMapping(path="/appStatus")

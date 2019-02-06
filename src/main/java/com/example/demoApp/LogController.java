@@ -1,25 +1,16 @@
 package com.example.demoApp;
 
-import java.util.List;
-import java.util.ListIterator;
-import java.util.UUID;
-
-import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.constant.SecurityConstants;
 import com.example.entity.AppProcess;
 import com.example.entity.Users;
-import com.example.entity.WfTransaction;
 import com.example.jpaRepo.AppProcessRepository;
 import com.example.jpaRepo.UsersRepository;
 
@@ -57,32 +48,6 @@ public class LogController {
 	public @ResponseBody AppProcess getAppById(@RequestHeader(value=SecurityConstants.HEADER_STRING) String authToken,
 			@PathVariable("id") String id) {     
 			return processLogRepo.findByProcessId(id);
-	}
-	
-	@PostMapping(path="/add")
-	public @ResponseBody String addNewUser(@RequestBody AppProcess appProcess) {
-		AppProcess savedApp = processLogRepo.save(appProcess);
-		return savedApp.getProcessId();
-	}
-	
-	
-	
-	@PostMapping(path="/updateApp")
-	public @ResponseBody String updateApp(@RequestBody WfTransaction wfTransaction) {
-		
-		AppProcess savedApp = processLogRepo.findByProcessId(wfTransaction.getTransactionId());
-		List<WfTransaction> transactionList = savedApp.getTransactions();
-		
-		ListIterator<WfTransaction> iterator = transactionList.listIterator();
-		while (iterator.hasNext()) {
-			WfTransaction next = iterator.next();
-		     if (next.gettName().equals(wfTransaction.gettName())) {
-		         iterator.set(wfTransaction);
-		     }
-		 }
-		savedApp.setTransactions(transactionList);
-		processLogRepo.save(savedApp);
-		return "updated";
 	}
 }
 
